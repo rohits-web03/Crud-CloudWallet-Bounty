@@ -43,7 +43,7 @@
                         name="name" 
                         class="mt-1 bg-neutral-700 block w-full border-gray-300 
                     rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 
-                    focus:ring-opacity-50" 
+                    focus:ring-opacity-50 px-4 py-2" 
                         on:input={handleNameInput}
                         bind:value={newName} 
                         required
@@ -57,7 +57,7 @@
                         name="email" 
                         class="mt-1 bg-neutral-700 block w-full border-gray-300 
                     rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 
-                    focus:ring-opacity-50" 
+                    focus:ring-opacity-50 px-4 py-2" 
                         on:input={handleEmailInput}    
                         bind:value={newEmail} 
                         required
