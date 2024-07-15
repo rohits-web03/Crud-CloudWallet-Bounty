@@ -5,6 +5,8 @@ import Navbar from "$lib/Navbar.svelte";
   </script>
 <div class="bg-neutral-900 absolute top-0 left-0 right-0 text-white mx-auto min-h-screen">
     <Navbar />
-    <slot />
+    <div class="mt-20 mb-48">
+        <slot />
+    </div>
     <Footer />
 </div> 

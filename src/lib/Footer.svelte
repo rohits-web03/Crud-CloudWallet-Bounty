@@ -1,4 +1,4 @@
-<footer class="sm:fixed sticky bottom-0 w-full bg-neutral-950 text-white py-8">
+<footer class="fixed left-0 bottom-0 z-20 w-full bg-neutral-950 text-white py-8">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
       <!-- <div class="mb-4 md:mb-0">
         <h2 class="text-2xl font-bold">TSOC'24</h2>
