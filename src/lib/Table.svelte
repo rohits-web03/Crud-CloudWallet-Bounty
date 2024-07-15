@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let applicants;
 
 	import EditModal from './EditModal.svelte';
@@ -6,7 +6,12 @@
 	let selectedUser = {};
 	let showModal = false;
 
-	function openEditModal(user) {
+	function openEditModal(user: {
+		id:number,
+		name:string,
+		email:string,
+		createdAt:Date
+	}) {
 		console.log("Selected User:",user)
 		selectedUser = user;
 		showModal = true;
@@ -15,7 +20,17 @@
 	function closeModal() {
 	showModal = false;
 	}
-	$: sortedApplicants = applicants.slice().sort((a, b) => a.id - b.id);
+	$: sortedApplicants = applicants.slice().sort((a: {
+		id:number,
+		name:string,
+		email:string,
+		createdAt:Date
+	}, b: {
+		id:number,
+		name:string,
+		email:string,
+		createdAt:Date
+	}) => a.id - b.id);
 </script>
 
 

@@ -8,7 +8,7 @@
   
   <nav class="fixed z-20 top-0 w-full bg-neutral-950 bg-opacity-50 backdrop-blur-md text-white py-6">
     <div class="container mx-auto flex justify-between items-center px-8 lg:px-2">
-      <a href="/" class="flex items-center space-x-2">
+      <a href="https://tsoc.dev/" class="flex items-center space-x-2">
         <img src="https://tsoc.dev/TSoC_Favicon.svg" alt="TSOC Logo" class="h-8 w-8">
         <span class="font-bold text-xl">TSOC'24</span>
       </a>

@@ -8,19 +8,30 @@ export const actions = {
 
     const authModule = neucron.authentication;
     const walletModule = neucron.wallet;
-
+    try{
     const loginResponse = await authModule.login({
       email: data.get("email"),
       password: data.get("password"),
     });
     console.log(loginResponse);
-
     const DefaultWalletBalance = await walletModule.getWalletBalance({});
-
+    console.log(DefaultWalletBalance.status_code);
+    if(loginResponse.status_code===200 && DefaultWalletBalance.status_code===200){
+      return {
+        auth: true,
+        balance: DefaultWalletBalance.data.balance.summary,
+      };
+    } else {
+      return {
+        auth: false
+      };
+    }
+  } catch(error){
+    console.log(error);
     return {
-      auth: true,
-      balance: DefaultWalletBalance.data.balance.summary,
+      auth: false
     };
+  }
   },
   pay: async ({ request }) => {
     const data = await request.formData();

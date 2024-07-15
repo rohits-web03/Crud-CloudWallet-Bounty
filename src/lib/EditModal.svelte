@@ -1,21 +1,29 @@
-<script>
-  export let showModal = false;
-  export let user = {};
-  export let closeModal;
+<script lang="ts">
+  export let showModal: boolean = false;
+  interface User {
+		id?:number;
+		name?:string;
+		email?:string;
+		createdAt?:Date;
+	}
+  export let user: User = {};
+  export let closeModal: ()=>void;
 
-  let newName = '';
-  let newEmail = '';
+  let newName: string | undefined = '';
+  let newEmail: string | undefined = '';
 
-  function handleSubmit(event) {
-      closeModal(); 
+  function handleSubmit(event: Event): void {
+    closeModal(); 
   }
 
-  function handleNameInput(event) {
-    user.name = event.target.value;
+  function handleNameInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    user.name = input.value;
   }
 
-  function handleEmailInput(event) {
-    user.email = event.target.value;
+  function handleEmailInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    user.email = input.value;
   }
 
   $: {
@@ -35,29 +43,25 @@
             </div>
             <form method="POST" action="?/update">
                 <input type="hidden" name="id" id="id" value={user.id}>
-                <div class="mb-4">
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <div class="mb-4 space-y-2">
+                    <label for="name" class="block text-sm font-medium">Name</label>
                     <input 
                         type="text" 
                         id="name" 
                         name="name" 
-                        class="mt-1 bg-neutral-700 block w-full border-gray-300 
-                    rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 
-                    focus:ring-opacity-50 px-4 py-2" 
+                        class="appearance-none block w-full bg-neutral-700 border-b border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:border-b focus:border-white" 
                         on:input={handleNameInput}
                         bind:value={newName} 
                         required
                     />
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <div class="mb-4 space-y-2">
+                    <label for="email" class="block text-sm font-medium">Email</label>
                     <input 
                         type="email" 
                         id="email" 
                         name="email" 
-                        class="mt-1 bg-neutral-700 block w-full border-gray-300 
-                    rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 
-                    focus:ring-opacity-50 px-4 py-2" 
+                        class="appearance-none block w-full bg-neutral-700 border-b border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:border-b focus:border-white" 
                         on:input={handleEmailInput}    
                         bind:value={newEmail} 
                         required
@@ -67,7 +71,7 @@
                     <button 
                         type="submit" 
                         class="inline-block w-full py-2 px-4 border border-transparent rounded-md 
-                        shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 
+                        shadow-sm text-white bg-blue-600 hover:bg-blue-700 
                         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       Save Changes
                     </button>
